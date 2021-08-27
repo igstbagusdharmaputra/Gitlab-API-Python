@@ -1,0 +1,33 @@
+#!/usr/bin/env python3
+import gitlab
+import sys, os, urllib3, argparse, pdb
+from gitlab.v4.objects import projects
+import csv
+# Silence the irritating insecure warnings. I'm not insecure you're insecure!
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+
+# Gitlab.com
+# url = 'https://gitlab.com/'
+# token = 'GvFdyxdE8Lj7Dysc71zy'
+
+# Gitlab ee
+# url = 'https://cicd-scm.telkomsel.co.id/'
+# token = 'z-MKPVU8WdigWdsEJsVy'
+
+# Gitlab Ce
+url = 'https://cicd-gitlab.telkomsel.co.id/'
+token = 'pGWPGp25by6ydvgfX_mR'
+
+gl = gitlab.Gitlab(url,token,api_version=4,ssl_verify=False)
+parser = argparse.ArgumentParser(description='Hi Semangat Yaa!!!',
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+
+parser.add_argument( "project_id", type=int, help="test")
+
+id_project = parser.parse_args().project_id
+
+project = gl.projects.get(id_project)
+
+for item in project.users.list():
+        print(item.username)
