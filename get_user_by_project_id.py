@@ -20,5 +20,5 @@ id_project = parser.parse_args().project_id
 
 project = gl.projects.get(id_project)
 
-for item in project.users.list():
+for item in project.users.list(all=True):
         print(item.username)
