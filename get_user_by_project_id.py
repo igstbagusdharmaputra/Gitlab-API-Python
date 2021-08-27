@@ -7,17 +7,8 @@ import csv
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
-# Gitlab.com
-# url = 'https://gitlab.com/'
-# token = 'GvFdyxdE8Lj7Dysc71zy'
-
-# Gitlab ee
-# url = 'https://cicd-scm.telkomsel.co.id/'
-# token = 'z-MKPVU8WdigWdsEJsVy'
-
-# Gitlab Ce
-url = 'https://cicd-gitlab.telkomsel.co.id/'
-token = 'pGWPGp25by6ydvgfX_mR'
+url = 'https://gitlab.com/'
+token = '<Token>'
 
 gl = gitlab.Gitlab(url,token,api_version=4,ssl_verify=False)
 parser = argparse.ArgumentParser(description='Hi Semangat Yaa!!!',
