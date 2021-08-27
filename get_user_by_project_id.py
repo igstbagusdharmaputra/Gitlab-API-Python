@@ -19,10 +19,5 @@ id_project = parser.parse_args().project_id
 
 project = gl.projects.get(id_project)
 
-<<<<<<< HEAD
 for item in project.users.list(all=True):
         print(item.username)
-=======
-for item in project.users.list():
-        print(item.username)
->>>>>>> 5d01fd6eb98bb758dcc381241a7862f5cfb2790f
